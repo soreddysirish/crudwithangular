@@ -1,0 +1,9 @@
+<a href ="/users">Back</a>
+<p><b>Name:</b> {{user.form_data.name}}</p>
+<p><b>Email:</b> {{user.form_data.email}}</p>
+<p><b>Mobile:</b> {{user.form_data.mobile}}</p>
+<script type="text/javascript">
+	var json  ={
+		"form_data": <%=@user.to_json.html_safe  %>
+	} 
+</script>

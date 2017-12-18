@@ -1,0 +1,32 @@
+<div ng-controller ="sampleForm as user">
+	<form name="sampleForm">
+		<div>
+			<label for ="name">Name:</label>
+			<input type  ="text" name="name" ng-model = "user.form_data.name"/>
+		</div>
+		<div>
+			<label for ="email">Email:</label>
+			<input type="text" name="email" ng-model = "user.form_data.email">
+		</div>
+		<div>
+			<label for ="email">Mobile:</label>
+			<input type="text" name="mobile" ng-model = "user.form_data.mobile">
+		</div>
+		<div>
+			<input type="checkbox" id="hobbies" name="hobbies"  ng-true-value="true"  ng-false-value = "false" ng-model ="user.form_data.hobbies_present" ng-change = "user.hobbies_change()"/> 
+			<div ng-show="user.form_data.hobbies_present">
+				<ul ng-repeat = "hoby in user.form_data.hobbies">
+					<li>
+						<label>HOBBY:</label>
+						<input type="text" name="hobbies-{{$index}}" ng-model ="hoby.name">
+						<label>Desc:</label>
+						<input type="text"  name="hobbies-{{$index}}" ng-model ="hoby.description">
+						<span><button  type="button" name="add-hobbies"  ng-if = "$last" ng-click="user.addhobbies()"> ADD</button></span>
+						<span><button  ng-if ="user.form_data.hobbies.length > 1" type="button" name="remove-hobbies" ng-click="user.removehobbies($index)"> remove</button></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<input type = "submit" name ="submit-btn" ng-click ="user.saveData()" />
+	</form>
+</div>

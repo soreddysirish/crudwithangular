@@ -1,0 +1,6 @@
+<%= render partial: "create_new_user" %>
+<script type="text/javascript">
+	var json = {
+		"form_data": <%= @user.to_json.html_safe %>
+	}
+</script>

@@ -1,0 +1,27 @@
+<div ng-controller ="sampleForm as user">
+	<a href="/users/new"> new user</a>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+		</tr>
+		<tbody>
+			<tr ng-repeat = "users_data in user.form_data track by $index">
+				<td>{{users_data.name}}</td>
+				<td>{{users_data.email}}</td>
+				<td>{{users_data.mobile}}</td>
+				<td>
+					<span><a href="/users/{{users_data.id}}">View</a></span>
+					<span><a href="/users/{{users_data.id}}/edit">Edit</a></span>
+					<span><button class="btn btn-default btn-danger" ng-click = "user.deleteUser(users_data.id,$index)">Delete</button></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	var json = {
+		"form_data": <%=  @users.to_json.html_safe  %>
+	}
+</script>
