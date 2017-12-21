@@ -21,6 +21,15 @@ development:
   <<: *default
   database: crudwithangular_development
 
+adminPanal:
+  host: 52.77.239.110
+  adapter: mysql2
+  username: root
+  password: ClearTripSeoHeader
+  database: adminPanal_development
+  pool: 1000
+  encoding: utf8
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.

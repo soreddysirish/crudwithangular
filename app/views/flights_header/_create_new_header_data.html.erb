@@ -1,0 +1,129 @@
+<div class="container-fluid" ng-controller ="flights_header as header">
+	<div class="admin-panel-wrapper">
+		<div class="col-sm-2 pad-zero">
+			<div class="menu-lists">
+				<ul class="list-unstyled list_of_links">
+					<li><a href ="#cities_list"> Flight Cities List</a></li>
+					<li><a href ="#flights_header"> Flights Header</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-10 pad-zero">
+			<div class="admin-content">
+				<div class="menu-create">
+					<h3 class="">Menu Fields</h3>
+					<form name="NewMenuForm" >
+						<div class="pull-right">
+							<div class="form-group">
+								<label for="country">Language:</label>
+								<select class="form-control" id="language" ng-model="header.flights_header.language_name" required >
+									<option disabled value>---Select Option---</option>
+									<option>English</option>
+									<option>Arabic</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="form-group">
+											<label for="section">Section:</label>
+											<select class="form-control" id="section" ng-model="header.flights_header.section" required>
+												  <option disabled value>---Select Option---</option>
+												<option>IN-dom</option>
+												<option>IN-int</option>
+												<option>SA-dom</option>
+												<option>SA-int</option>
+												<option>AE-dom</option>
+												<option>AE-int</option>
+												<option>BH-dom</option>
+												<option>BH-int</option>
+												<option>QA-dom</option>
+												<option>QA-int</option>
+												<option>OM-dom</option>
+												<option>OM-int</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="page type">Page type:</label>
+										<select class="form-control" id="pageType" ng-model="header.flights_header.page_type" required >
+											  <option disabled value>---Select Option---</option>
+											<option>flight_schedule</option>
+											<option>flight_brand</option>
+											<option>flight_route</option>
+											<option>overview_brand</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12" ng-init ="isDisabled = true">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="departurecity">Departure city:</label>
+										<input type="text" name="departurecity" class="form-control" admin-dep-flight-auto-complete placeholder="Departure city" ng-model="header.flights_header.departurecity"  id = "city-flight-departure" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="arrivalCity">Arrival city:</label>
+										<input type="text" name="" class="city-auto form-control"  admin-city-flight-auto-complete placeholder="Arrival City"  id ="city-flight-arrival" ng-model="header.flights_header.arrivalCity" required>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<p>&nbsp;</p>
+						<div class="menu-fields">
+							<label>About City:</label>
+							<input type="checkbox" id="aboutCity" name="aboutCity"  ng-true-value="true" ng-false-value="false" ng-model="header.flights_header.about_city_present" ng-change = "header.about_change()"/> Show
+							<div class="form-group" ng-show="header.flights_header.about_city_present">
+								<fieldset data-ng-repeat="about in header.flights_header.flights_about">
+									<input type="text" ng-model="about.menuname" name="" placeholder="Enter Field Name">
+									<input type="text" ng-model="about.menulink" name="" placeholder="Enter Field Link">
+									<button class="remove"  name="remove-hobbies" ng-if ="header.flights_header.flights_about.length > 1" ng-click="header.removeAboutData($index)" >-</button>
+								<button class="addfields" ng-click="header.addAboutData()" name="add-hobbies"  ng-if = "$last">Add Menu</button>
+								</fieldset>
+							</div>
+						</div>
+
+
+						<div class="menu-fields">
+							<label>Reach:</label>
+							<input type="checkbox" id="reachCity" name="reachCity"  ng-true-value="true" ng-false-value="false" ng-model="header.flights_header.reach_city_present" ng-change = "header.reach_change()"/> Show
+							<div class="form-group" ng-show="header.flights_header.reach_city_present">
+								<fieldset data-ng-repeat="about in header.flights_header.reachCity">
+									<input type="text" ng-model="about.menuname" name="" placeholder="Enter Field Name">
+									<input type="text" ng-model="about.menulink" name="" placeholder="Enter Field Link">
+									<button class="remove"  name="remove-hobbies" ng-if ="header.flights_header.reachCity.length > 1" ng-click="header.removeReachData($index)" >-</button>
+								<button class="addfields" ng-click="header.addReachData()" name="add-hobbies"  ng-if = "$last">Add Menu</button>
+								</fieldset>
+							</div>
+						</div>
+
+						<div class="menu-fields">
+							<label>Offers:</label>
+							<input type="checkbox" id="cityOffers" name="cityOffers"  ng-true-value="true" ng-false-value="false" ng-model="header.flights_header.offers_present" ng-change = "header.offers_change()"/> Show
+							<div class="form-group" ng-show="header.flights_header.offers_present">
+								<fieldset data-ng-repeat="offers in header.flights_header.cityOffers">
+									<input type="text" ng-model="offers.menuname" name="" placeholder="Enter Field Name">
+									<input type="text" ng-model="offers.menulink" name="" placeholder="Enter Field Link">
+									<button class="remove"  ng-if ="header.flights_header.cityOffers.length > 1" ng-click="header.removeOffersData($index)">-</button>
+								<button class="addfields" ng-click="header.addOffersData()" ng-if = "$last"	>Add Menu</button>
+								</fieldset>
+							</div>
+						</div>
+						<button class="savefields" ng-click="header.saveFlightheader()" ng-disabled ="NewMenuForm.$invalid">Save</button>
+					</form>
+				</div>
+			</div><!--Content-->
+		</div>
+		<div class="clearfix"></div>
+	</div><!--/admin-panle-wrapper-->
+</div>

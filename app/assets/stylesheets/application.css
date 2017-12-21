@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+
+.admin-panel-wrapper{
+		background: #fff;
+		border: 1px solid #d9d9d9;
+		margin: 30px 0 0;
+		font-size: 14px;
+	}
+	.Major-fields input,.admin-content input {
+		padding: 5px 10px;
+		background: #fff;
+		border: 1px solid #d9d9d9;
+		border-radius: 3px;
+	}
+	.admin-content {
+		padding: 15px;
+	}
+	.admin-content h3{
+		font-size: 18px;
+	}
+	.menu-lists {
+		    border-right: 1px solid #d9d9d9;
+	    min-height: 100vh;
+	    background: #f1f1f1;
+	}
+	.menu-lists h3{
+		font-size: 18px;
+		padding: 0 5px 10px;
+	}
+	.menu-lists li a{
+		padding: 15px;
+	    display: block;
+	    font-size: 16px;
+	    color: #000;
+	    background: #fdfdfd;
+	    text-decoration: none;
+	    border-bottom: 1px solid #d9d9d9;
+	}
+	.menu-lists ul {
+		margin: 0;
+	}
+	.Cities-table th {
+		padding: 10px;
+		background: #eee;
+		font-size: 16px;
+	}
+	.Cities-table td {
+		font-size: 14px;
+		color: #333;
+		padding: 5px 10px;
+	}
+	.no-card{
+		width: 50%;
+	    margin: 0 auto;
+	    padding: 25px;
+	    box-shadow: 0 0 3px rgba(0,0,0,.3);
+	    text-align: center;
+	}
+	.no-card a{
+		padding: 5px 10px;
+	    display: inline-block;
+	    background: #eee;
+	    color: #000;
+	    border-radius: 3px;
+	    font-size: 15px;
+	    margin: 15px 0 0;
+	    text-decoration: none;
+	}
+	.Action-bar a {
+		display: inline-block;
+	    padding: 5px 20px;
+	    text-decoration: none;
+	    border-radius: 3px;
+	    background: #1952c3;
+	    font-size: 14px;
+	    color: #fff;
+	}
+	.admin-content i {
+		background: none;
+		width: auto;
+		height: auto;
+	}
+	.remove{
+		display: inline-block;
+	    margin: 0px 25px;
+	    background: #9e1515;
+	    padding: 5px 6px;
+	    line-height: 12px;
+	    border-radius: 50%;
+	    color: #fff;
+	    cursor: pointer;
+	}
+	.admin-content input  {
+		width: 300px;
+	}
+	.save-menu {
+		background: #40e0d0!important;
+	}
+	fieldset{
+	background: #FCFCFC;
+	padding: 16px;
+	border: 1px solid #D5D5D5;
+}
+.addfields{
+	margin: 10px 0;
+}
+
+.remove{
+	background: #C76868;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 21px;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	padding: 4px 9px;
+	vertical-align: top;
+	line-height: 100%;   
+}
+.menu-fields{
+	padding: 30px;
+	border: 1px solid #d9d9d9;
+	margin: 0 0 10px;
+}
+.menu-fields label{
+	width: 150px;
+}
+input[type="text"],
+select{
+	padding:5px;
+}
+.addfields,.savefields {
+	background-color: #36c;
+	color: #fff;
+	padding: 5px 20px;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+}
+.savefields {
+	background-color: #ef6830;
+	font-size: 18px;
+	width: 120px;
+}
+.admin-content input[type="checkbox"]{
+	width: auto;
+	margin: 0 10px 0 0;
+}
+#country,#pageType{
+	width: 60%
+}

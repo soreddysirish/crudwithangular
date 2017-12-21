@@ -9,6 +9,7 @@ app.controller("sampleForm",["$http","$window",function($http,$window){
 			description: ""
 		}]
 	}
+	
 	if(typeof json != 'undefined') {
 		angular.forEach(json, function(obj_value, obj_key) {
 			user[obj_key] = angular.copy(obj_value);
@@ -61,4 +62,33 @@ app.controller("sampleForm",["$http","$window",function($http,$window){
 			user.form_data.hobbies.push({name:"",description:""})
 		}
 	}
+
 }])
+
+
+app.directive('adminCityFlightAutoComplete', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attr) {
+			$("#city-flight-arrival").autocomplete({
+				source: "/panel/admincity/autocomplete",
+				minLength: 3,
+				select: function(event, ui) {
+				}
+			});
+		}
+	}
+});
+app.directive('adminDepFlightAutoComplete', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attr) {
+			$("#city-flight-departure").autocomplete({
+				source: "/panel/admincity/autocomplete",
+				minLength: 3,
+				select: function(event, ui) {
+				}
+			});
+		}
+	}
+});

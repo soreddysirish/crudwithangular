@@ -1,0 +1,6 @@
+<%= render partial: "create_new_header_data" %>
+<script type="text/javascript">
+	var json = {
+		"flights_header":<%= @flight_header.to_json.html_safe %>
+	}
+</script>
